@@ -1,0 +1,6 @@
+html, body {
+	background: #000 no-repeat center center fixed;
+ }
+.container-fluid {
+	padding-top:100px;
+}
