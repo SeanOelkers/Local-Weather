@@ -1,6 +1,8 @@
 body {
 	padding-top: 100px;
-	background: #666;
+	background: url('http://i.imgur.com/UoMAu0M.jpg') no-repeat center center fixed;
+	background-size: cover;
+
 	font-family: 'Martel', serif;
 }
 h1,h2,h3,h4 {
