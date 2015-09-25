@@ -4,31 +4,33 @@
     <meta name='description' content=''>
     <meta name='author' content='sean@seanoelkers.com'>
     <title>Local Weather</title>
+    <link href='https://fonts.googleapis.com/css?family=Martel:400,900' rel='stylesheet' type='text/css'>
     <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css'>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
     <link rel='stylesheet' href='css/style.css'>
   </head>
-	  <body role='document'>
+	  <body role='document' id='default'>
         <div class='container-fluid'>
             <div class='row'>
-                <div class='col-lg-4 col-sm-6 col-lg-offset-4 col-sm-offset-3'>
+                <div class='col-sm-6 col-sm-offset-3'>
                     <div class='panel panel-primary'>
                         <div class='panel-heading'>
                             <h1 id='title' class='text-center'>My Local Weather</h1>
                         </div>
                         <div class='panel-body text-center'>
                             <h2 class='text-center'><span id='location'>#</span> <img src="#" alt="" id='weatherIcon' /></h2>
-                                <div class='col-lg-4' id='tempChange' alt='Toggle preferred temperature units' title='Toggle preferred temperature units'>
+                                <div class='col-sm-4' id='tempChange' alt='Toggle preferred temperature units' title='Toggle preferred temperature units'>
                                     <h4>Temperature</h4>
                                     <p id='celcius' class='temp' style='display: none;'>#</p>
                                     <p id='farenheit' class='temp'>#</p>
                                 </div>
-                                <div class='col-lg-4'>
+                                <div class='col-sm-4' id='windChange' alt='Toggle preferred wind speed units' title='Toggle preferred wind speed units'>
                                     <h4>Wind</h4>
-                                    <p id='wind'>#</p>
+                                    <p id='windKPH' class='wind' style='display: none;'>#</p>
+                                    <p id='windMPH' class='wind'>#</p>
                                 </div>
-                                <div class='col-lg-4'>
+                                <div class='col-sm-4'>
                                     <h4>Conditions</h4>
                                     <p id='desc'>#</p>
                                 </div>

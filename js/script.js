@@ -9,7 +9,6 @@ function () {
 function updateLocation(response) {
   $('#location').html(response['city']+", "+response['region']);
   var latlon = response['loc'].split(",");
-  //$('#latlon').html("Lat: "+latlon[0]+" Long: "+latlon[1]);
   $.get("http://api.openweathermap.org/data/2.5/weather?lat="+latlon[0]+"&lon="+latlon[1]+"&units=imperial")
     .done(updateWeather)
     .fail(handleErr)
@@ -17,27 +16,23 @@ function updateLocation(response) {
 
 function updateWeather(response) {
     var farenheitTemp = Math.round(response['main']['temp']*10)/10;
-    if(farenheitTemp < 32) {
-        var bgImage = "https://farm1.staticflickr.com/3/2488408_10dfec417f_b.jpg";
-    } else if (farenheitTemp < 60) {
-        var bgImage = "https://farm4.staticflickr.com/3787/12302287493_af4531d298_k.jpg";
-    } else if (farenheitTemp < 80) {
-        bgImage = "https://farm1.staticflickr.com/3/2488408_10dfec417f_b.jpg";
-    } else {
-        bgImage = "https://farm4.staticflickr.com/3787/12302287493_af4531d298_k.jpg";
-    }
     var celciusTemp = Math.round((response['main']['temp']-32)/1.8*10)/10;
     var windDirection = degToCompass(response['wind']['deg']);
-    var windSpeed = Math.round(response['wind']['speed']*3600/5280*10)/10;
+    var windSpeedMPH = Math.round(response['wind']['speed']*0.68182*10)/10;
+    var windSpeedKPH = Math.round(response['wind']['speed']*1.09728*10)/10;
     var icon = "http://openweathermap.org/img/w/"+response['weather'][0]['icon']+".png";
-    $('#celcius').html(celciusTemp+"&deg;C");
-    $('#farenheit').html(farenheitTemp+"&deg;F");
-    $('#wind').html(windSpeed+" mph "+windDirection);
-    $('#desc').html(response['weather'][0]['main']);
+    var mainWeather = response['weather'][0]['main'];
+    if(mainWeather) {
+        document.getElementById('default').id = mainWeather;
+    }
+    var supplWeather = response['weather'][0]['description'];
+    $('#celcius').html(celciusTemp+"&deg; C");
+    $('#farenheit').html(farenheitTemp+"&deg; F");
+    $('#windMPH').html(windDirection+" @ "+windSpeedMPH+" MPH ");
+    $('#windKPH').html(windDirection+" @ "+windSpeedKPH+" KPH ");
+    $('#desc').html(mainWeather+"<br /><small>["+supplWeather+"]</small>");
     $('#iconID').html(icon);
     document.getElementById('weatherIcon').src=icon;
-    var myElement = document.body;
-    document.body.style.background = "url("+bgImage+") no-repeat center center fixed";
 }
 
 function handleErr(jqxhr, textStatus, err) {
@@ -51,5 +46,11 @@ function degToCompass(num) {
 }
 
 $( "#tempChange" ).click(function() {
+    //toggle temperature units
   $( ".temp" ).toggle();
+});
+
+$( "#windChange" ).click(function() {
+    //toggle wind speed units
+  $( ".wind" ).toggle();
 });

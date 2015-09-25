@@ -1,6 +1,39 @@
-html, body {
-	background: #000 no-repeat center center fixed;
- }
-.container-fluid {
-	padding-top:100px;
+body {
+	padding-top: 100px;
+	background: #666;
+	font-family: 'Martel', serif;
+}
+h1,h2,h3,h4 {
+	font-weight:900;
+}
+p {
+	font-size: 1.2em;
+}
+#Thunderstorm {
+	background: url('http://i.imgur.com/6r5r0Al.jpg') no-repeat center center fixed;
+	background-size: cover;
+}
+#Drizzle {
+	background: url('http://i.imgur.com/J7NfocF.jpg') no-repeat center center fixed;
+	background-size: cover;
+}
+#Rain {
+	background: url('http://i.imgur.com/c3quJfL.jpg') no-repeat center center fixed;
+	background-size: cover;
+}
+#Snow {
+	background: url('http://i.imgur.com/2zumSzR.jpg') no-repeat center center fixed;
+	background-size: cover;
+}
+#Atmosphere {
+	background: url('http://i.imgur.com/wOnWEeb.jpg') no-repeat center center fixed;
+	background-size: cover;
+}
+#Clouds {
+	background: url('http://i.imgur.com/cADNcrq.jpg') no-repeat center center fixed;
+	background-size: cover;
+}
+#Extreme {
+	background: url('http://i.imgur.com/c0zIOQq.jpg') no-repeat center center fixed;
+	background-size: cover;
 }
